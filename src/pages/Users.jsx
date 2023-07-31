@@ -1,39 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { TYPES } from "../redux/types";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { handleGetUser } from "../redux/action/userAction";
-import { onLogout } from "../redux/action/authAction";
 import { AuthContext } from "../Context/AuthProvider";
-import { ProductContext } from "../Context/ProductProvider";
 import check from "../image/shield-check.svg";
 
 export default function Users() {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { list } = useSelector((state) => state.productReducer);
-  // const { list, onGetData } = useContext(ProductContext);
+
   const { isAuth, onLogout } = useContext(AuthContext);
 
-  // const getUser = async () => {
-  //   // dispatch(handleGetUser());
-  // };
-
-  // useEffect(() => {
-  //   // getUser();
-  //   onGetData();
-  // }, []);
-
   const handleLogout = () => {
-    // isAuth("");
     onLogout("");
     navigate("/");
   };
-
-  // if (!isAuth) {
-  //   return null;
-  // }
 
   return (
     <div
